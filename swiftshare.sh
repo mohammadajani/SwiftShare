@@ -1,8 +1,13 @@
 #!/bin/bash
 
-SHARE_FILE="/home/anonmahaa/Desktop/share_folder/text_recent"
+# Default share file path
+DEFAULT_PATH="$HOME/Desktop/share_folder/text_recent"
+
+# Use the provided path or fall back to the default
+SHARE_FILE="${1:-$DEFAULT_PATH}"
 
 # Create the file if it doesn't exist
+mkdir -p "$(dirname "$SHARE_FILE")"  # Ensure the directory exists
 touch "$SHARE_FILE"
 
 while true; do
